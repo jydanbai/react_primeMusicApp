@@ -9,6 +9,7 @@ class Header extends Component {
     open: true,
   }
   onOpenChange = (...args) => {
+    console.log(args);
     console.log(111);
     this.setState({ open: !this.state.open });
   }
