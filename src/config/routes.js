@@ -3,6 +3,7 @@ import SongList from '../containers/songList'
 import RankList from '../containers/rankList'
 import Search from '../containers/search'
 import Skin from '../containers/skin'
+import RankDetail from '../containers/rankDetail'
 
 
 
@@ -18,6 +19,10 @@ const routes = [
   {
     path: '/ranklist', // 路由路径
     component: RankList // 排行榜组件
+  },
+  {
+    path: '/ranklist/rankdetail', //路由路径
+    component: RankDetail   //排行榜详情组件
   },
   {
     path: '/search', // 路由路径

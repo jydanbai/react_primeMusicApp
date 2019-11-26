@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import BScroll from 'better-scroll'
+import {Route, Link} from 'react-router-dom'
 import './index.less'
+
+// import RankDetail from '../rankDetail'
 
 class RankList extends Component {
 
@@ -16,7 +19,9 @@ class RankList extends Component {
     return (
       <div>
         <header className="rank-header">
-          <div className="header-left iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></div>
+          <Link to='/home'>
+            <div className="header-left iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></div>
+          </Link>
           <div className="header-title">排行榜</div>
           <div className="header-right"></div>
         </header>
@@ -24,7 +29,7 @@ class RankList extends Component {
           <div className="rank-content">
             <h1 className="title">官方榜单</h1>
             <ul className="row-list">
-              <li className="row-item">
+              <li to='/ranklist/rankdetail' className="row-item">
                 <div className="item-hd">
                   <img src="https://p1.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=150y150" alt=""/>
                   <p>每天更新</p>
