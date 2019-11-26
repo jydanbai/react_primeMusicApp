@@ -5,6 +5,7 @@ import './App.css';
 import routes from './config/routes';
 import history from './history';
 import Header from './components/header';
+import Search from './containers/search'
 import 'antd-mobile/dist/antd-mobile.css';
 
 export default class App extends Component {
@@ -15,6 +16,7 @@ export default class App extends Component {
         <Switch> {/* /login/xxx   默认使用不完全匹配 | 使用第一个匹配的路由 */}
           <Redirect from="/" to="/home" exact/>
             <Header>
+              
               <Switch>
                 {
                   routes.map(route => <Route {...route} key={route.path}/>)
