@@ -1,4 +1,4 @@
-import { Tabs, WhiteSpace, Badge} from 'antd-mobile';
+import { Tabs} from 'antd-mobile';
 import React,{Component} from 'react'
 import './Result.less'
 const tabs = [

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './index.less'
+import {Link} from 'react-router-dom'
 import Result from'./result/Result'
 class Search extends Component {
   render() {
     return (
       <div className="wrapper" >
          <div className="wrapper_header">
-           <span className="goback"><i className="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></i></span>
+          <Link to='/home'> 
+          <span className="goback">
+            <i className="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></i>
+          </span>
+          </Link>
            
            
          </div>
