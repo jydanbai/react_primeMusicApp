@@ -17,15 +17,13 @@ export default class App extends Component {
     return (
       <Router history={history}>
             <Header/>
-              
-              <Switch>
+            <Switch>
               <Route path='/home' component={Home}></Route>
               <Route path='/ranklist' component={rankList}></Route>
               <Route path='/search' component={search}></Route>
               <Route path='/songlist' component={SongList}></Route>
               <Redirect from="/" to="/home" exact/>
-              </Switch>
-            
+            </Switch>
       </Router>
     )
   }
