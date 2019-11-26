@@ -25,6 +25,12 @@ body .wrapper .input {
   top: 5px;
   left: 40px;
 }
+body .wrapper .input input::-webkit-input-placeholder {
+  /* placeholder颜色 */
+  color: rgba(255, 255, 255, 0.7);
+  /* placeholder字体大小 */
+  /* placeholder位置 */
+}
 body .wrapper .input .search {
   width: 300px;
   height: 23px;
@@ -35,7 +41,7 @@ body .wrapper .input .search {
 }
 body .wrapper .content h1 {
   font-size: 10px;
-  padding-left: 10px;
+  padding: 10px;
   color: #888;
 }
 body .wrapper .content .search-list .list li {
