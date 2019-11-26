@@ -1,15 +1,18 @@
-.header {
+.rank-header {
   width: 100%;
-  height: 55.5px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-around;
-  background-color: pink;
+  position: absolute;
+  top: 0;
+  // z-index: 99;
   .header-left {
     width: 25px;
     height: 25px;
-    background-color: green;
+    font-size: 24px;
+    color: #ffffff;
   }
   .header-title {
     width: 257px;
@@ -28,14 +31,15 @@
   .header-right {
     width: 25px;
     height: 25px;
-    /* background-color: green; */
   }
 
 }
 
 .rank-wrapper {
+  height: calc(100vh - 55px);
+  overflow: hidden;
   .rank-content {
-    .title-one {
+    .title {
       width: 100%;
       height: 52.77px;
       line-height: 52.77px;
@@ -71,14 +75,54 @@
           }
         }
         .row-item-bd {
-          width: 245.12px;
-          height: 122.6px;
-          padding: 0 11.11px;
+          width: 245.14px;
+          height: 123.6px;
+          padding: 0 11.111px;
           border-bottom: 1px solid rgba(0, 0, 0, .1);
-          
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          box-sizing: border-box;
+          p {
+            font-size: 14px;
+            color: #666666;
+          }
         }
       }
-
+    }
+    .column-list {
+      width: 100%;
+      padding: 4.167px;
+      display: flex;
+      flex-wrap: wrap;
+      .column-item {
+        width: 118.750px;
+        height: 161.1px;
+        margin: 0 1.736px 15.635px 1.736px;
+        background-color: green;
+        .item-hd {
+          width: 119.438px;
+          height: 119.438px;
+          position: relative;
+          img {
+            border-radius: 2px;
+            max-width: 100%;
+          }
+          p {
+            position: absolute;
+            left: 5.2px;
+            bottom: 5.2px;
+            color: #ffffff;
+          }
+        }
+        .column-bd {
+          width: 118.750px;
+          height: 41.656px;
+          line-height: 20.656px;
+          font-size: 14px;
+          color: #000000;
+        }
+      }
     }
   }
 }
