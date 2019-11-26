@@ -4,6 +4,7 @@ class SongList extends Component {
   render() {
     return (
       <div className="column-wrapper">
+        <p className="song-list">歌单</p>
         <div className="column-item">
          <div className="img-wrapper">
            <i className="iconfont iconerji"></i>

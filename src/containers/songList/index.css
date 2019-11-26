@@ -1,13 +1,27 @@
 .column-wrapper {
+  width: 100%;
+  height: 100%;
   display: flex;
+  justify-content: space-between;
   flex-flow: wrap;
-  padding: 0.93vw;
+}
+.column-wrapper .song-list {
+  width: 257px;
+  height: 36px;
+  color: white;
+  font-size: 14px;
+  line-height: 36px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .column-wrapper .column-item {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
-  flex: 0 0 33.3%;
+  flex: 0 0 33.33333%;
   box-sizing: border-box;
-  padding: 2vw 1vw 0;
+  padding: 2vw 0.4vw 0;
 }
 .column-wrapper .column-item .img-wrapper {
   width: 120px;
@@ -33,7 +47,7 @@
   border-radius: 2px;
 }
 .column-wrapper .column-item .column-title {
-  width: 130px ;
+  width: 120px ;
   color: #333;
   font-size: 3.33vw;
   word-wrap: break-word;
