@@ -35,7 +35,7 @@ body .wrapper .input .search {
 }
 body .wrapper .content h1 {
   font-size: 10px;
-  padding-left: 10px;
+  padding: 10px;
   color: #888;
 }
 body .wrapper .content .search-list .list li {
