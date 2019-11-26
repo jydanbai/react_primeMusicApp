@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BScroll from 'better-scroll'
 import './index.less'
 
- class RankDetail extends Component {
+ class PlayList extends Component {
 
   componentDidMount() {
     new BScroll('.rankDetail-wrapper', {
@@ -166,4 +166,4 @@ import './index.less'
   }
 }
 
-export default RankDetail
+export default PlayList
