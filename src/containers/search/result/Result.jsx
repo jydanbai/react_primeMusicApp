@@ -18,18 +18,18 @@ class Result extends Component {
       onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
     >
       <div style={{  backgroundColor: '#fff' }}>
-       <div class='left-list'>
+       <div className='left-list'>
        <h2>啦啦</h2>
         <p>哈哈哈哈</p>
        </div>
       </div>
       <div style={{  backgroundColor: '#fff' }}>
-        <div class="right-list">
-           <div class="img">
+        <div className="right-list">
+           <div className="img">
                <img src="https://p2.music.126.net/d8vFObt1avQD_dyQL0qxXQ==/109951164466973554.jpg?param=70y70" alt=""/>
                
             </div>
-            <div class="context">
+            <div className="context">
             <span>不不不不不</span>
             <p>666首 by 皮皮山，播放2我8万次</p>
             </div>

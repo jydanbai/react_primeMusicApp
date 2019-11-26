@@ -4,20 +4,20 @@ import Result from'./result/Result'
 class Search extends Component {
   render() {
     return (
-      <div class="wrapper" >
-         <div class="wrapper_header">
-           <span class="goback"><i class="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></i></span>
+      <div className="wrapper" >
+         <div className="wrapper_header">
+           <span className="goback"><i className="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></i></span>
            
            
          </div>
-         <div class="input">
-            <input type="text" class="search" placeholder="搜索你喜欢的"/>
+         <div className="input">
+            <input type="text" className="search" placeholder="搜索你喜欢的"/>
          </div>
 
-         <div class="content">
+         <div className="content">
            <h1>热门搜索</h1>
-           <div class="search-list">
-             <ul class="list">
+           <div className="search-list">
+             <ul className="list">
                <li>啦啦啦啦啦啦</li>
                <li>啦啦啦啦啦啦</li>
                <li>啦啦啦啦啦啦</li>
@@ -30,7 +30,7 @@ class Search extends Component {
              </ul>
            </div>
          </div>
-         <div class="result">
+         <div className="result">
             <Result/>
          </div>
       </div>
