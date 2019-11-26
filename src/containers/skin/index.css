@@ -1,0 +1,41 @@
+.skin-wrapper {
+  padding-top: 4vw;
+}
+.skin-wrapper .iconchangyongtubiao-xianxingdaochu-zhuanqu- {
+  font-size: 28px;
+  color: white;
+  position: absolute;
+  left: 18px;
+  top: 15px;
+}
+.skin-wrapper .skin-center {
+  width: 257px;
+  height: 41px;
+  color: white;
+  line-height: 41px;
+  position: absolute;
+  left: 65px;
+  top: 8px;
+  z-index: 1;
+  font-size: 3.7037vw;
+}
+.skin-wrapper .skin-content {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  flex: 1 1;
+}
+.skin-wrapper .skin-content .skin-item {
+  flex: 0 0 48vw;
+  width: 180px;
+  height: 180px;
+  background: #e5473c;
+  margin: 0 0 15px;
+  color: white;
+}
+.skin-wrapper .skin-content .skin-item p {
+  height: 180px;
+  line-height: 180px;
+  text-align: center;
+  font-size: 20px ;
+}

@@ -1,0 +1,26 @@
+.drawer-sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.drawer-sidebar .menu-warpper {
+  height: 100%;
+}
+.drawer-sidebar .menu-warpper .menu-title {
+  height: 44.44444vw;
+  text-align: center;
+  line-height: 44.44444vw;
+  opacity: 0.8;
+  background-image: url(/src/assets/imgs/aip.png);
+  background-position: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.drawer-sidebar .menu-warpper .menu-item {
+  display: flex;
+  height: 9.25926vw;
+  padding: 2.77778vw;
+  border-bottom: 1px solid #ededed;
+  line-height: 9.25926vw;
+}
