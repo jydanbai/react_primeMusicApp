@@ -2,10 +2,13 @@ import React,{Component}from 'react';
 import {Router,Switch,Route,Redirect} from 'react-router-dom';
 
 import './App.css';
-import routes from './config/routes';
+// import routes from './config/routes';
 import history from './history';
 import Header from './components/header';
-import Search from './containers/search'
+import Home from './containers/home';
+import rankList from './containers/rankList';
+import search from './containers/search';
+import SongList from './containers/songList';
 import 'antd-mobile/dist/antd-mobile.css';
 
 export default class App extends Component {
@@ -13,17 +16,16 @@ export default class App extends Component {
   render () {
     return (
       <Router history={history}>
-        <Switch> {/* /login/xxx   默认使用不完全匹配 | 使用第一个匹配的路由 */}
-          <Redirect from="/" to="/home" exact/>
             <Header>
               
               <Switch>
-                {
-                  routes.map(route => <Route {...route} key={route.path}/>)
-                }
+              <Route path='/home' component={Home}></Route>
+              <Route path='/ranklist' component={rankList}></Route>
+              <Route path='/search' component={search}></Route>
+              <Route path='/songlist' component={SongList}></Route>
+              <Redirect from="/" to="/home" exact/>
               </Switch>
             </Header>
-        </Switch>
       </Router>
     )
   }
