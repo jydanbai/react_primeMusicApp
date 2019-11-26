@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import BScroll from 'better-scroll'
 import   './index.css'
 class SongList extends Component {
@@ -8,13 +9,14 @@ class SongList extends Component {
      click:true,
      scrollX:false
    })
-   
   }
 
   render() {
     return (
       <div className="column-wrapper">
-         <i className="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></i>
+        <Link to="/home">
+           <i className="iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></i>
+        </Link>
         <p className="song-list">歌单</p>
         <div className="column-content-wrapper">
         <div className="column-content">
