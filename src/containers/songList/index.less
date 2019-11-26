@@ -1,0 +1,44 @@
+.column-wrapper{
+  display: flex;
+  flex-flow: wrap;
+  padding: 0.93vw;
+ .column-item{
+   min-width: 0;
+   flex: 0 0 33.3%;
+   box-sizing: border-box;
+   padding: 2vw 1vw 0;
+   .img-wrapper{
+     width: 120px;
+     height: 120px;
+     position: relative;
+     i{
+       position: absolute;
+       right: 40px;
+       top: 4px;
+       color: white;
+     }
+     .play-num{
+      position: absolute;
+      right: 6px;
+      top: 4px;
+      color: white;
+      font-size:12px;
+     }
+     .column-img{
+       width: 120px;
+       height: 120px;
+       border-radius: 2px;
+     }
+   }
+   .column-title{
+     width:130px ;
+     color: #333;
+     font-size:3.33vw ;
+     word-wrap: break-word;
+     text-overflow: ellipsis;
+     height: 9.3vw;
+     margin: 1.9vw 0.93vw;
+     line-height: 4.63vw;
+   }
+ }
+}
