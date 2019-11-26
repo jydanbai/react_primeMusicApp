@@ -2,11 +2,21 @@ import React, { Component } from "react";
 import "./index.less";
 import BScroll from "better-scroll";
 import { Link, route } from "react-router-dom";
+import { getBanner, getPersonalized } from "../../api";
+import { HTTP_OK } from "../../config";
+import {formatPlayCount} from '../../common/util';
 
 import Swiper from "swiper";
 import "swiper/css/swiper.min.css";
 class Home extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      banners: [],
+      personalized: []
+    };
+  }
+  componentWillUpdate(){
     new BScroll(".scroll-wrap", {
       scrollY: true,
       click: true,
@@ -35,7 +45,25 @@ class Home extends Component {
       observeParents: true //修改swiper的父元素时，自动初始化swiper
     });
   }
+  async componentDidMount() {
+    await getBanner().then(res => {
+      if (res.data.code === HTTP_OK) {
+        this.setState({
+          banners: res.data.banners
+        });
+      }
+    });
+    await getPersonalized().then(res => {
+      if (res.data.code === HTTP_OK) {
+        this.setState({
+          personalized: res.data.result
+        });
+      }
+    });
+    
+  }
   render() {
+    const { banners, personalized } = this.state;
     return (
       <div>
         <div className="headerWrap">
@@ -45,7 +73,7 @@ class Home extends Component {
           <div className="headerIcon">
             <i className="iconfont iconyinfu"></i>
           </div>
-          <Link to='/search'>
+          <Link to="/search">
             <div className="headerIcon">
               <i className="iconfont iconsousuo"></i>
             </div>
@@ -57,24 +85,14 @@ class Home extends Component {
               <div className="bannerBgc"></div>
               <div className="carouselWrap">
                 <div className="swiper-wrapper">
-                  <div className="swiper-slide">
-                    <img
-                      src="http://p1.music.126.net/BiRE39jAJIAKH_pYrg4PFw==/109951164510964214.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="swiper-slide">
-                    <img
-                      src="http://p1.music.126.net/d9HsVguIpLv-lzNqgdTScg==/109951164510277291.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="swiper-slide">
-                    <img
-                      src="http://p1.music.126.net/3qC9QZG0ZJWiH2fE68LTAg==/109951164510358605.jpg"
-                      alt=""
-                    />
-                  </div>
+                  {banners.length > 0 &&
+                    banners.map(item => {
+                      return (
+                        <div className="swiper-slide" key={item.targetId}>
+                          <img src={item.imageUrl} alt="" />
+                        </div>
+                      );
+                    })}
                 </div>
                 <div className="swiper-pagination"></div>
               </div>
@@ -105,186 +123,26 @@ class Home extends Component {
                 </span>
               </div>
               <ul className="song-list">
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
-                <li className="song-list-item">
-                  <div className="item-pic">
-                    <img
-                      src="https://p1.music.126.net/IhCKOd8Q1MdSQK7zSAHd9A==/109951164457504558.jpg?param=200y200"
-                      alt=""
-                    />
-                    <div className="item-lis-num">
-                      <i className="iconfont iconerji"></i>
-                      <span>636万</span>
-                    </div>
-                  </div>
-                  <div className="item-title">
-                    <span>[华语速爆新歌] 最新华语音乐推荐</span>
-                  </div>
-                </li>
+                {personalized.length > 0 &&
+                  personalized.map(item => {
+                    return (
+                      <li className="song-list-item" key={item.id}>
+                        <div className="item-pic">
+                          <img
+                            src={item.picUrl}
+                            alt=""
+                          />
+                          <div className="item-lis-num">
+                            <i className="iconfont iconerji"></i>
+                            <span>{formatPlayCount(item.playCount)}</span>
+                          </div>
+                        </div>
+                        <div className="item-title">
+                          <span>{item.name}</span>
+                        </div>
+                      </li>
+                    );
+                  })}
               </ul>
             </div>
           </div>
