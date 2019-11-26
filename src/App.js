@@ -16,15 +16,14 @@ export default class App extends Component {
   render () {
     return (
       <Router history={history}>
-            <Header>
-              <Switch>
+            <Header/>
+            <Switch>
               <Route path='/home' component={Home}></Route>
               <Route path='/ranklist' component={rankList}></Route>
               <Route path='/search' component={search}></Route>
               <Route path='/songlist' component={SongList}></Route>
               <Redirect from="/" to="/home" exact/>
-              </Switch>
-            </Header>
+            </Switch>
       </Router>
     )
   }
