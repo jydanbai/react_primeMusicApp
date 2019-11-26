@@ -17,14 +17,37 @@ body .wrapper .wrapper_header .goback i {
   font-size: 25px;
   color: white;
 }
-body .wrapper .wrapper_header .input {
+body .wrapper .input {
   padding: 10px;
   border-bottom: 1px solid white;
   margin-bottom: 20px;
+  position: absolute;
+  top: 5px;
+  left: 40px;
 }
-body .wrapper .wrapper_header .input .search {
+body .wrapper .input .search {
   width: 300px;
   height: 23px;
   background: transparent;
   border: 0px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+}
+body .wrapper .content h1 {
+  font-size: 10px;
+  padding-left: 10px;
+  color: #888;
+}
+body .wrapper .content .search-list .list li {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #000;
+}
+body .result {
+  display: none;
 }
