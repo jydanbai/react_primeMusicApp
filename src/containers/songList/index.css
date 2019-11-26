@@ -44,6 +44,7 @@
   right: 40px;
   top: 2px;
   color: white;
+  font-size: 14px;
 }
 .column-wrapper .column-content-wrapper .column-content .column-item .img-wrapper .play-num {
   position: absolute;
