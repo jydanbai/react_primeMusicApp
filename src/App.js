@@ -16,7 +16,7 @@ export default class App extends Component {
   render () {
     return (
       <Router history={history}>
-            <Header>
+            <Header/>
               
               <Switch>
               <Route path='/home' component={Home}></Route>
@@ -25,7 +25,7 @@ export default class App extends Component {
               <Route path='/songlist' component={SongList}></Route>
               <Redirect from="/" to="/home" exact/>
               </Switch>
-            </Header>
+            
       </Router>
     )
   }
