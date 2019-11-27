@@ -16,7 +16,10 @@ import './index.less'
     return (
       <div>
         <header className="rankDetail-header">
-          <div className="header-left iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></div>
+          <div onClick={() => {
+            this.props.history.go(-1)
+            }}
+           className="header-left iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></div>
           <div className="header-title">云音乐飙升榜</div>
           <div className="header-right"></div>
         </header>

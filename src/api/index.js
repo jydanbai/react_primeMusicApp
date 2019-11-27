@@ -26,3 +26,12 @@ export function getRankList() {
   const url = `${URL}/toplist/detail`
   return axios.get(url)
 }
+
+//根据传入的id获取歌单详情
+export function getPlayList(id) {
+  const url = `${URL}/playlist/detail`
+  return axios.get(
+    url,
+    id
+  )
+}
