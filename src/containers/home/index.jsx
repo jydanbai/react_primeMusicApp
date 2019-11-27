@@ -69,6 +69,7 @@ class Home extends Component {
   }
   render() {
     const { banners, personalized } = this.state;
+    console.log(this)
     return (
       <div>
         <div className="headerWrap">

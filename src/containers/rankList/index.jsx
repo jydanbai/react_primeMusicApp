@@ -61,6 +61,7 @@ class RankList extends Component {
 
   render() {
     const {officalList, globalList, artistToplist} = this.state
+    console.log(this)
     return (
       <div>
         <header className="rank-header">
@@ -77,7 +78,12 @@ class RankList extends Component {
               {
                 officalList.length > 0 && officalList.map(item => {
                   return (
-                    <li key={item.id} className="row-item">
+                    <li onClick={() => {
+                      this.props.history.push({
+                        pathname: `/playlist/${item.id}`
+                        })
+                      }} 
+                      key={item.id} className="row-item">
                       <div className="item-hd">
                         <img src={`${item.coverImgUrl}?param=150y150`} alt=""/>
                           <p>{item.updateFrequency}</p>
@@ -124,7 +130,12 @@ class RankList extends Component {
               {
                 globalList.length > 0 && globalList.map(item => {
                   return (
-                    <li key={item.id} className="column-item">
+                    <li onClick={() => {
+                      this.props.history.push({
+                        pathname: `/playlist/${item.id}`
+                        })
+                      }}
+                      key={item.id} className="column-item">
                       <div className="item-hd">
                         {/* <img src={item.coverImgUrl} alt=""/> */}
                         <img src={`${item.coverImgUrl}?param=150y150`} alt=""/>
