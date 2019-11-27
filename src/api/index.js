@@ -15,11 +15,12 @@ export function getPersonalized() {
   return axios.get(url)
 }
 
-// //获取歌单
-// export function getPersonalized() {
-//   const url = `${URL}/personalized`
-//   return axios.get(url)
-// }
+
+//获取官方和全球排行榜
+export function getRankList() {
+  const url = `${URL}/toplist/detail`
+  return axios.get(url)
+}
 
 //获取歌单详情
 export function getPlaylistDetail(id) {

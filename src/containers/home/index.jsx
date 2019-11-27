@@ -31,11 +31,11 @@ class Home extends Component {
       pagination: {
         el: ".swiper-pagination"
       },
-      autoplay: {
-        //自动播放，注意：直接给autoplay:true的话，在点击之后不能再自动播放了
-        delay: 2500,
-        disableOnInteraction: true //户操作swiper之后，是否禁止autoplay。默认为true：停止。
-      },
+      // autoplay: {
+      //   //自动播放，注意：直接给autoplay:true的话，在点击之后不能再自动播放了
+      //   delay: 2500,
+      //   disableOnInteraction: false //户操作swiper之后，是否禁止autoplay。默认为true：停止。
+      // },
       pagination: {
         el: ".swiper-pagination",
         clickable: true // 允许点击跳转
@@ -86,9 +86,9 @@ class Home extends Component {
               <div className="carouselWrap">
                 <div className="swiper-wrapper">
                   {banners.length > 0 &&
-                    banners.map(item => {
+                    banners.map((item,index) => {
                       return (
-                        <div className="swiper-slide" key={item.targetId}>
+                        <div className="swiper-slide" key={index}>
                           <img src={item.imageUrl} alt="" />
                         </div>
                       );
@@ -124,9 +124,9 @@ class Home extends Component {
               </div>
               <ul className="song-list">
                 {personalized.length > 0 &&
-                  personalized.map(item => {
+                  personalized.map((item,index) => {
                     return (
-                      <li className="song-list-item" key={item.id}>
+                      <li className="song-list-item" key={index}>
                         <div className="item-pic">
                           <img
                             src={item.picUrl}
