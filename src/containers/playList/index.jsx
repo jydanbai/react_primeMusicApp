@@ -49,10 +49,10 @@ class PlayList extends Component {
         </header>
         <div className="rankDetail-wrapper">
           <div className="rankDetail-content">
-            <div className="playList-header">
+            <div className="playList-header" >
               <div className="playList-header-wrapper">
                 <div className="playList-header-hd" data-play="25.8亿">
-                  <img src="http://p1.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=100y100" alt="" />
+                  <img src={avatarUrl} alt="" />
                 </div>
                 <div className="playList-header-bd">
                   <h1>{name}</h1>
