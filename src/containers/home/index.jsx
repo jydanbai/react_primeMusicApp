@@ -86,9 +86,9 @@ class Home extends Component {
               <div className="carouselWrap">
                 <div className="swiper-wrapper">
                   {banners.length > 0 &&
-                    banners.map(item => {
+                    banners.map((item,index) => {
                       return (
-                        <div className="swiper-slide" key={item.targetId}>
+                        <div className="swiper-slide" key={index}>
                           <img src={item.imageUrl} alt="" />
                         </div>
                       );
@@ -124,9 +124,9 @@ class Home extends Component {
               </div>
               <ul className="song-list">
                 {personalized.length > 0 &&
-                  personalized.map(item => {
+                  personalized.map((item,index) => {
                     return (
-                      <li className="song-list-item" key={item.id}>
+                      <li className="song-list-item" key={index}>
                         <div className="item-pic">
                           <img
                             src={item.picUrl}
