@@ -24,19 +24,18 @@
 .column-wrapper .column-content-wrapper .column-content {
   display: flex;
   justify-content: space-between;
-  flex-flow: wrap;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .column-wrapper .column-content-wrapper .column-content .column-item {
+  width: 187px;
   display: flex;
   flex-direction: column;
-  flex: 0 0 50%;
-  box-sizing: border-box;
-  padding: 2vw 1vw ;
   min-width: 0;
+  box-sizing: border-box;
+  padding: 2vw 0.5vw;
 }
 .column-wrapper .column-content-wrapper .column-content .column-item .img-wrapper {
-  width: 180px;
-  height: 180px;
   position: relative;
 }
 .column-wrapper .column-content-wrapper .column-content .column-item .img-wrapper i {
@@ -44,6 +43,7 @@
   right: 40px;
   top: 2px;
   color: white;
+  font-size: 16px;
 }
 .column-wrapper .column-content-wrapper .column-content .column-item .img-wrapper .play-num {
   position: absolute;
@@ -60,7 +60,7 @@
 .column-wrapper .column-content-wrapper .column-content .column-item .column-title {
   width: 180px ;
   color: #333;
-  font-size: 3.33vw;
+  font-size: 14px ;
   word-wrap: break-word;
   text-overflow: ellipsis;
   height: 9.3vw;

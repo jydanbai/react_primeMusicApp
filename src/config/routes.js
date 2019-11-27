@@ -17,10 +17,6 @@ const routes = [
     component: SongList// 歌单组件
   },
   {
-    path: '/songlist/songlistdetail', // 路由路径
-    component: SongListDetail// 歌单组件
-  },
-  {
     path: '/ranklist', // 路由路径
     component: RankList // 排行榜组件
   },

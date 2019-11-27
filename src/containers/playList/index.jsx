@@ -5,12 +5,14 @@ import './index.less'
  class PlayList extends Component {
 
   componentDidMount() {
+    console.log(this.props.match.params.id)
     new BScroll('.rankDetail-wrapper', {
       scrollX: false,
       scrollY: true,
       click: true
     })
   }
+
 
   render() {
     return (

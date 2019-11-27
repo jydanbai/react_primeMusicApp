@@ -1,34 +1,36 @@
-import React,{Component}from 'react';
+import React,{Component,Suspense}from 'react';
 import {Router,Switch,Route,Redirect} from 'react-router-dom';
 
 import './App.css';
-// import routes from './config/routes';
-import history from './history';
+import Loading from './components/loading'
+
+import History from './history';
 import Header from './components/header';
-import Home from './containers/home';
-import rankList from './containers/rankList';
-import search from './containers/search';
-import SongList from './containers/songList';
-import PlayList from './containers/playList';
-import Skin from './containers/skin';
-// import 'antd-mobile/dist/antd-mobile.css';
+import Home from 'lazy!./containers/home';
+import RankList from 'lazy!./containers/rankList';
+import Search from 'lazy!./containers/search';
+import SongList from 'lazy!./containers/songList';
+import PlayList from 'lazy!./containers/playList';
+import Skin from 'lazy!./containers/skin';
 import 'antd-mobile/dist/antd-mobile.css';
 
 export default class App extends Component {
 
   render () {
     return (
-      <Router history={history}>
+      <Router history={History}>
         <Header/>
+        <Suspense fallback={<Loading/>}>
         <Switch>
           <Route path='/home' component={Home}></Route>
-          <Route path='/playList' component={PlayList}></Route>
-          <Route path='/ranklist' component={rankList}></Route>
-          <Route path='/search' component={search}></Route>
+          <Route path='/playList/:id' component={PlayList}></Route>
+          <Route path='/ranklist' component={RankList}></Route>
+          <Route path='/search' component={Search}></Route>
           <Route path='/skin' component={Skin}></Route>
           <Route path='/songlist' component={SongList}></Route>
           <Redirect from="/" to="/home" exact/>
         </Switch>
+        </Suspense>
       </Router>
     )
   }
