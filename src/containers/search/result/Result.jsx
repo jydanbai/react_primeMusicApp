@@ -58,7 +58,7 @@ render(){
     <div className="wrapperScroll">
       <div style={{  backgroundColor: '#fff' }} >
         {this.props.songs.length>0&&this.props.songs.map((item,index)=>(
-           <Link to={{
+           <Link key={index} to={{
              pathname:`/playlist/${item.id}`,
              
              }}>
@@ -76,11 +76,11 @@ render(){
     <div className="wrapperScrollTwo">
       <div style={{  backgroundColor: '#fff' }} >
         {this.state.songlist.length>0&&this.state.songlist.map((item,index)=>(
-           <Link to={{
+           <Link key={index} to={{
             pathname:`/playlist/${item.id}`,
             
             }}>
-           <div className="right-list" key={index} onClick={()=>{
+           <div className="right-list"  onClick={()=>{
              
            }}>
            <div className="img">
