@@ -2,8 +2,19 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import BScroll from 'better-scroll'
 import './index.css'
+
+import { getPersonalized } from '../../api'
+import { HTTP_OK } from "../../config";
+import { formatPlayCount } from '../../common/util';
+
 class SongList extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      personalized: []
+    }
+  }
+  componentWillUpdate() {
     new BScroll('.column-content-wrapper', {
       scrollY: true,
       click: true,
@@ -11,7 +22,18 @@ class SongList extends Component {
     })
   }
 
+  async componentDidMount() {
+    await getPersonalized().then(res => {
+      if (res.data.code === HTTP_OK) {
+        this.setState({
+          personalized: res.data.result
+        })
+      }
+    })
+  }
+
   render() {
+    const { personalized } = this.state
     return (
       <div className="column-wrapper">
         <Link to="/home">
@@ -20,131 +42,25 @@ class SongList extends Component {
         <p className="song-list">歌单</p>
         <div className="column-content-wrapper">
           <div className="column-content">
-            <Link to="/playlist">
-              <div className="column-item">
-                <div className="img-wrapper">
-                  <i className="iconfont iconerji"></i>
-                  <span className="play-num">33035</span>
-                  <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-                </div>
-                <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-              </div>
-            </Link>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
-            <div className="column-item">
-              <div className="img-wrapper">
-                <i className="iconfont iconerji"></i>
-                <span className="play-num">33035</span>
-                <img className="column-img" src="http://p1.music.126.net/hD9AlEA36BUzFMSOqf4lUQ==/109951164236954260.jpg?param=200y200" alt="" />
-              </div>
-              <p className="column-title">【迷幻/慢摇】Psychedelic melody</p>
-            </div>
+            {
+              personalized.length > 0 &&
+              personalized.map((item, index) => {
+                return (
+                  <Link to="/playlist" key={index}>
+                    <div className="column-item" >
+                      <div className="img-wrapper">
+                        <i className="iconfont iconerji"></i>
+                        <span className="play-num">{formatPlayCount(item.playCount)}</span>
+                        <img className="column-img" src={item.picUrl} alt="" />
+                      </div>
+                      <p className="column-title">{item.name}</p>
+                    </div>
+                  </Link>
+                )
+              })
+            }
           </div>
         </div>
-
       </div>
     );
   }
