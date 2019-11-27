@@ -126,7 +126,11 @@ class Home extends Component {
                 {personalized.length > 0 &&
                   personalized.map((item,index) => {
                     return (
-                      <li className="song-list-item" key={index}>
+                      <li className="song-list-item" key={index} onClick={() => {
+                        this.props.history.push({
+                          pathname:`/playlist/${item.id}`
+                        })
+                      }}>
                         <div className="item-pic">
                           <img
                             src={item.picUrl}

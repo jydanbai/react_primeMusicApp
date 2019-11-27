@@ -23,7 +23,7 @@ export default class App extends Component {
         <Suspense fallback={<Loading/>}>
         <Switch>
           <Route path='/home' component={Home}></Route>
-          <Route path='/playList' component={PlayList}></Route>
+          <Route path='/playList/:id' component={PlayList}></Route>
           <Route path='/ranklist' component={RankList}></Route>
           <Route path='/search' component={Search}></Route>
           <Route path='/skin' component={Skin}></Route>
