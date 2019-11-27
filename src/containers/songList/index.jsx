@@ -15,14 +15,27 @@ class SongList extends Component {
     }
   }
   componentWillUpdate() {
-    new BScroll('.column-content-wrapper', {
-      scrollY: true,
-      click: true,
-      scrollX: false
-    })
+    
   }
 
+  // componentDidUpdate() {
+  //   //组件更新后，如果实例化了better-scroll并且需要刷新就调用refresh()函数
+  //   if (this.state.bScroll) {
+  //     this.state.bScroll.refresh()
+  //   }
+  // }
+
+
   async componentDidMount() {
+   new BScroll('.column-content-wrapper', {
+      scrollY: true,
+      click: false,
+      scrollX: false,
+    })
+    //组件更新后，如果实例化了better-scroll并且需要刷新就调用refresh()函数
+    // if (new BScroll) {
+    //   new BScrollrefresh()
+    // }
     await getPersonalized().then(res => {
       if (res.data.code === HTTP_OK) {
         this.setState({

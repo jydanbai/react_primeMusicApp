@@ -23,11 +23,12 @@
 }
 .column-wrapper .column-content-wrapper .column-content {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
 }
 .column-wrapper .column-content-wrapper .column-content .column-item {
-  width: 180px;
+  width: 187px;
   display: flex;
   flex-direction: column;
   min-width: 0;

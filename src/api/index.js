@@ -20,3 +20,13 @@ export function getPersonalized() {
 //   const url = `${URL}/personalized`
 //   return axios.get(url)
 // }
+
+//获取歌单详情
+export function getPlaylistDetail(id) {
+  const url = `${URL}/playlist/detail`
+  return axios.get(url, {
+    params: {
+      id
+    }
+  })
+}
