@@ -3,6 +3,7 @@ import "./index.less";
 import BScroll from "better-scroll";
 import LazyLoad from 'react-lazyload';
 import { Link, route } from "react-router-dom";
+import LazyLoad from 'react-lazyload';
 import { getBanner, getPersonalized,getPlaylistDetail} from "../../api";
 import { HTTP_OK } from "../../config";
 import {formatPlayCount} from '../../common/util';
@@ -34,11 +35,11 @@ class Home extends Component {
         pagination: {
           el: ".swiper-pagination"
         },
-        // autoplay: {
-        //   //自动播放，注意：直接给autoplay:true的话，在点击之后不能再自动播放了
-        //   delay: 2500,
-        //   disableOnInteraction: false //户操作swiper之后，是否禁止autoplay。默认为true：停止。
-        // },
+        autoplay: {
+          //自动播放，注意：直接给autoplay:true的话，在点击之后不能再自动播放了
+          delay: 2500,
+          disableOnInteraction: false //户操作swiper之后，是否禁止autoplay。默认为true：停止。
+        },
         pagination: {
           el: ".swiper-pagination",
           clickable: true // 允许点击跳转
@@ -137,10 +138,12 @@ class Home extends Component {
                         })
                       }}>
                         <div className="item-pic">
-                          <img
-                            src={item.picUrl}
-                            alt=""
-                          />
+                          <LazyLoad  height={240} >
+                            <img
+                              src={item.picUrl}
+                              alt=""
+                            />
+                          </LazyLoad>
                           <div className="item-lis-num">
                             <i className="iconfont iconerji"></i>
                             <span>{formatPlayCount(item.playCount)}</span>
