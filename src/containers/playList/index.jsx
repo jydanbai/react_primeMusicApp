@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BScroll from 'better-scroll'
 import './index.less'
 import {  getPlaylistDetail } from '../../api'
+import { HTTP_OK } from "../../config";
 
 class PlayList extends Component {
   constructor(props) {

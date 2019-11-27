@@ -53,8 +53,8 @@ class SongList extends Component {
               personalized.length > 0 &&
               personalized.map((item, index) => {
                 return (
-                  <Link to="/playlist" key={index} >
-                    <div className="column-item" onClick={()=>{
+                  // <Link to="/playlist" key={index} >
+                    <div className="column-item"  key={index} onClick={()=>{
                       this.props.history.push({
                         pathname:`/playlist/${item.id}`
                       })
@@ -66,7 +66,7 @@ class SongList extends Component {
                       </div>
                       <p className="column-title">{item.name}</p>
                     </div>
-                  </Link>
+                  // </Link>
                 )
               })
             }
