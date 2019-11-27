@@ -16,35 +16,7 @@ class Home extends Component {
       personalized: []
     };
   }
-  componentWillUpdate(){
-    new BScroll(".scroll-wrap", {
-      scrollY: true,
-      click: true,
-      scrollX: false,
-      bounce: false
-    });
-    //一定要检查是不是每次都生成了Swiper对象，否则可能出现不滑动的情况和别的情况等
-    new Swiper(".carouselWrap", {
-      loop: true, // 循环模式选项
-
-      // 如果需要分页器
-      pagination: {
-        el: ".swiper-pagination"
-      },
-      // autoplay: {
-      //   //自动播放，注意：直接给autoplay:true的话，在点击之后不能再自动播放了
-      //   delay: 2500,
-      //   disableOnInteraction: false //户操作swiper之后，是否禁止autoplay。默认为true：停止。
-      // },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true // 允许点击跳转
-      },
-
-      observer: true, //修改swiper自己或子元素时，自动初始化swiper
-      observeParents: true //修改swiper的父元素时，自动初始化swiper
-    });
-  }
+ 
   async componentDidMount() {
     await getBanner().then(res => {
       if (res.data.code === HTTP_OK) {
@@ -53,6 +25,29 @@ class Home extends Component {
         });
       }
     });
+    if(this.state.banners){
+      console.log(this.state.banners);
+      new Swiper(".carouselWrap", {
+        loop: true, // 循环模式选项
+  
+        // 如果需要分页器
+        pagination: {
+          el: ".swiper-pagination"
+        },
+        // autoplay: {
+        //   //自动播放，注意：直接给autoplay:true的话，在点击之后不能再自动播放了
+        //   delay: 2500,
+        //   disableOnInteraction: false //户操作swiper之后，是否禁止autoplay。默认为true：停止。
+        // },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true // 允许点击跳转
+        },
+  
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true //修改swiper的父元素时，自动初始化swiper
+      });
+    }
     await getPersonalized().then(res => {
       if (res.data.code === HTTP_OK) {
         this.setState({
@@ -60,6 +55,16 @@ class Home extends Component {
         });
       }
     });
+
+    console.log('-------');
+    new BScroll(".scroll-wrap", {
+      scrollY: true,
+      click: true,
+      scrollX: false,
+      bounce: false
+    });
+    //一定要检查是不是每次都生成了Swiper对象，否则可能出现不滑动的情况和别的情况等
+   
     
   }
   render() {
