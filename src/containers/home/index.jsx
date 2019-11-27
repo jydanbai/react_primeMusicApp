@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./index.less";
 import BScroll from "better-scroll";
 import { Link, route } from "react-router-dom";
-import { getBanner, getPersonalized } from "../../api";
+import { getBanner, getPersonalized,getPlaylistDetail} from "../../api";
 import { HTTP_OK } from "../../config";
 import {formatPlayCount} from '../../common/util';
 
