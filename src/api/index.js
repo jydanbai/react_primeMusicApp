@@ -21,3 +21,13 @@ export function getRankList() {
   const url = `${URL}/toplist/detail`
   return axios.get(url)
 }
+
+//获取歌单详情
+export function getPlaylistDetail(id) {
+  const url = `${URL}/playlist/detail`
+  return axios.get(url, {
+    params: {
+      id
+    }
+  })
+}
