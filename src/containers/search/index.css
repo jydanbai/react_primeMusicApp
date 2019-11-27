@@ -56,4 +56,5 @@ body .wrapper .content .search-list .list li {
 }
 body .result {
   display: none;
+  height: 100%;
 }

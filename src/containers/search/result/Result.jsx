@@ -1,6 +1,10 @@
 import { Tabs} from 'antd-mobile';
 import React,{Component} from 'react'
 import './Result.less'
+import {search} from '../../../api'
+import { HTTP_OK } from '../../../config'
+
+import BScroll from 'better-scroll'
 const tabs = [
     { title: '单曲', sub: '1' },
     { title: '歌单', sub: '2' },
@@ -9,33 +13,79 @@ const tabs = [
   
  
 class Result extends Component {
-    render(){
+  constructor(props){
+    super(props)
+    
+    this.state={
+      songlist:[]
+    }
+  }
+  
+  componentDidMount(){
+    new BScroll('.wrapperScroll',{
+      scrollY: true,
+      click: true,
+      scrollX: false,
+      
+     })
+     new BScroll('.wrapperScrollTwo',{
+      scrollY: true,
+      click: true,
+      scrollX: false,
+      
+     })
+   }
+   
+  
+  
+render(){
         return(
 <div>
     <Tabs tabs={tabs}
-      initialPage={1}
-      onChange={(tab, index) => { console.log('onChange', index, tab); }}
+      initialPage={0}
+      onChange={() => {
+        
+        search(this.props.value,1000).then(res=>{
+          if(res.data.code===HTTP_OK){
+            this.setState({
+              songlist:res.data.result.playlists
+            })
+          }
+        })
+      }}
       onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
     >
-      <div style={{  backgroundColor: '#fff' }}>
-       <div className='left-list'>
-       <h2>啦啦</h2>
-        <p>哈哈哈哈</p>
-       </div>
+    <div className="wrapperScroll">
+      <div style={{  backgroundColor: '#fff' }} >
+        {this.props.songs.length>0&&this.props.songs.map((item,index)=>(
+           <div className='left-list' key={index}>
+            <h2>{item.name}</h2>
+            <p>{item.artists[0].name}</p>
+          </div>
+        )
+       
+        )}
+       
       </div>
-      <div style={{  backgroundColor: '#fff' }}>
-        <div className="right-list">
+    </div>
+    <div className="wrapperScrollTwo">
+      <div style={{  backgroundColor: '#fff' }} >
+        {this.state.songlist.length>0&&this.state.songlist.map((item,index)=>(
+           <div className="right-list" key={index}>
            <div className="img">
-               <img src="https://p2.music.126.net/d8vFObt1avQD_dyQL0qxXQ==/109951164466973554.jpg?param=70y70" alt=""/>
+               <img src={item.coverImgUrl} alt=""/>
                
             </div>
             <div className="context">
-            <span>不不不不不</span>
-            <p>666首 by 皮皮山，播放2我8万次</p>
+             <span>{item.name}</span>
+             <p>{item.trackCount}首by{item.creator.nickname}，播放{item.playCount}万次</p>
             </div>
            
         </div>
+        ))}
+        
       </div>
+    </div> 
      
     </Tabs>
     
