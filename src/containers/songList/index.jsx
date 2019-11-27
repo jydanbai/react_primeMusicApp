@@ -53,8 +53,12 @@ class SongList extends Component {
               personalized.length > 0 &&
               personalized.map((item, index) => {
                 return (
-                  <Link to={`/playlist/${item.id}`} key={index} >
-                    <div className="column-item" >
+                  <Link to="/playlist" key={index} >
+                    <div className="column-item" onClick={()=>{
+                      this.props.history.push({
+                        pathname:`/playlist/${item.id}`
+                      })
+                    }}>
                       <div className="img-wrapper">
                         <i className="iconfont iconerji"></i>
                         <span className="play-num">{formatPlayCount(item.playCount)}</span>
