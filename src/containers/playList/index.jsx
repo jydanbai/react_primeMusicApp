@@ -11,21 +11,19 @@ class PlayList extends Component {
     }
   }
 
- async componentDidMount() {
+  componentDidMount() {
     new BScroll('.rankDetail-wrapper', {
       scrollX: false,
       scrollY: true,
       click: true
     })
 
-   await getPlaylistDetail(this.props.match.params.id).then(res => {
+    getPlaylistDetail(this.props.match.params.id).then(res => {
       if (res.data.code === HTTP_OK) {
         this.setState({
           data: res.data.playlist
         })
         console.log(res.data.playlist)
-      }else{
-        console.log('err')
       }
     })
   }
