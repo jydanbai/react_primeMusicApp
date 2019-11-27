@@ -12,7 +12,7 @@ class SongList extends Component {
     super(props)
     this.state = {
       personalized: [],
-      data: {}
+   
     }
   }
   componentWillUpdate() {
@@ -20,6 +20,7 @@ class SongList extends Component {
   }
 
   async componentDidMount() {
+  
     new BScroll('.column-content-wrapper', {
       scrollY: true,
       click: true,
@@ -36,17 +37,8 @@ class SongList extends Component {
         })
       }
     })
-    getSonglistDetail = async (id) => {
-      await getPlaylistDetail(id).then(res => {
-        if (res.data.code === HTTP_OK) {
-          this.setState({
-            data: res.data.playlist
-          })
-          console.log(res.data.playlist)
-        }
-      })
-    }
   }
+  
   render() {
     const { personalized } = this.state
     return (
@@ -61,8 +53,8 @@ class SongList extends Component {
               personalized.length > 0 &&
               personalized.map((item, index) => {
                 return (
-                  <Link to="/playlist" key={index}>
-                    <div className="column-item" onClick={()=>this.getSonglistDetail(item.id)}>
+                  <Link to="/playlist" key={index} >
+                    <div className="column-item" onItemClick={id => this.props.history.push(`/playlist/${id}`)}>
                       <div className="img-wrapper">
                         <i className="iconfont iconerji"></i>
                         <span className="play-num">{formatPlayCount(item.playCount)}</span>
