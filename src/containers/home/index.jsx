@@ -6,7 +6,6 @@ import LazyLoad from "react-lazyload";
 import { getBanner, getPersonalized, getPlaylistDetail } from "../../api";
 import { HTTP_OK } from "../../config";
 import { formatPlayCount } from "../../common/util";
-import Player from "../../components/player";
 
 import Swiper from "swiper";
 import "swiper/css/swiper.min.css";
@@ -162,7 +161,6 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        <Player/>
       </div>
     );
   }
