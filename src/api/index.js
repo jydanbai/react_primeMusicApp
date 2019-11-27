@@ -31,3 +31,25 @@ export function getPlaylistDetail(id) {
     }
   })
 }
+
+//获取热搜名称
+export function searchHot(){
+  const url=`${URL}/search/hot`
+  return axios.get(url)
+}
+
+//搜索
+export function search(keywords,type=1){
+  
+ const url=`${URL}/search`
+ return axios.get(url,{
+   params:{
+
+    keywords,
+
+    type
+     
+   }
+ })
+}
+

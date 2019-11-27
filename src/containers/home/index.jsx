@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./index.less";
 import BScroll from "better-scroll";
 import { Link, route } from "react-router-dom";
-import { getBanner, getPersonalized } from "../../api";
+import { getBanner, getPersonalized,getPlaylistDetail} from "../../api";
 import { HTTP_OK } from "../../config";
 import {formatPlayCount} from '../../common/util';
 
@@ -126,7 +126,11 @@ class Home extends Component {
                 {personalized.length > 0 &&
                   personalized.map((item,index) => {
                     return (
-                      <li className="song-list-item" key={index}>
+                      <li className="song-list-item" key={index} onClick={() => {
+                        this.props.history.push({
+                          pathname:`/playlist/${item.id}`
+                        })
+                      }}>
                         <div className="item-pic">
                           <img
                             src={item.picUrl}
