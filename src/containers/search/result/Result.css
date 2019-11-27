@@ -12,6 +12,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+  color: black;
 }
 .left-list p {
   font-size: 10px;
@@ -46,6 +47,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+  color: black;
 }
 .right-list .context p {
   width: 100%;

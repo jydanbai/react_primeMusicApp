@@ -3,7 +3,7 @@ import React,{Component} from 'react'
 import './Result.less'
 import {search} from '../../../api'
 import { HTTP_OK } from '../../../config'
-
+import {Link} from 'react-router-dom'
 import BScroll from 'better-scroll'
 const tabs = [
     { title: '单曲', sub: '1' },
@@ -58,10 +58,15 @@ render(){
     <div className="wrapperScroll">
       <div style={{  backgroundColor: '#fff' }} >
         {this.props.songs.length>0&&this.props.songs.map((item,index)=>(
+           <Link key={index} to={{
+             pathname:`/playlist/${item.id}`,
+             
+             }}>
            <div className='left-list' key={index}>
             <h2>{item.name}</h2>
             <p>{item.artists[0].name}</p>
           </div>
+          </Link>
         )
        
         )}
@@ -71,7 +76,13 @@ render(){
     <div className="wrapperScrollTwo">
       <div style={{  backgroundColor: '#fff' }} >
         {this.state.songlist.length>0&&this.state.songlist.map((item,index)=>(
-           <div className="right-list" key={index}>
+           <Link key={index} to={{
+            pathname:`/playlist/${item.id}`,
+            
+            }}>
+           <div className="right-list"  onClick={()=>{
+             
+           }}>
            <div className="img">
                <img src={item.coverImgUrl} alt=""/>
                
@@ -82,6 +93,7 @@ render(){
             </div>
            
         </div>
+        </Link>
         ))}
         
       </div>
