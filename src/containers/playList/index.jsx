@@ -56,7 +56,7 @@ import './index.less'
             <div className="playList-header">
               <div style={{backgroundImage: `url(${data.coverImgUrl})`}} className="beijingtu"></div>
               <div className="playList-header-wrapper">
-                <div className="playList-header-hd" data-play={formatPlayCount(data.playCount)}>
+                <div className="playList-header-hd" data-play={`${formatPlayCount(data.playCount)}`}>
                   <img src={data.coverImgUrl} alt=""/>
                 </div>
                 <div className="playList-header-bd">
