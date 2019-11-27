@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
 import BScroll from 'better-scroll'
 import './index.less'
+import {  getPlaylistDetail } from '../../api'
+import { HTTP_OK } from "../../config";
 
- class PlayList extends Component {
+class PlayList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: {}
+    }
+  }
 
   componentDidMount() {
     console.log(this.props.match.params.id)
@@ -11,15 +19,32 @@ import './index.less'
       scrollY: true,
       click: true
     })
+
+    getPlaylistDetail(this.props.match.params.id).then(res => {
+      if (res.data.code === HTTP_OK) {
+        this.setState({
+          data: res.data.playlist
+        })
+        console.log(res.data.playlist)
+      }
+    })
   }
 
 
   render() {
+    const {
+      name,
+      coverImgUrl,
+      avatarUrl,
+      nickname,
+      playCount,
+      tracks
+    } = this.state.data
     return (
       <div>
         <header className="rankDetail-header">
           <div className="header-left iconfont iconchangyongtubiao-xianxingdaochu-zhuanqu-"></div>
-          <div className="header-title">云音乐飙升榜</div>
+          <div className="header-title">{name}</div>
           <div className="header-right"></div>
         </header>
         <div className="rankDetail-wrapper">
@@ -27,12 +52,12 @@ import './index.less'
             <div className="playList-header">
               <div className="playList-header-wrapper">
                 <div className="playList-header-hd" data-play="25.8亿">
-                  <img src="http://p1.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=100y100" alt=""/>
+                  <img src="http://p1.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=100y100" alt="" />
                 </div>
                 <div className="playList-header-bd">
-                  <h1>云音乐飙升榜</h1>
+                  <h1>{name}</h1>
                   <div className="playList-header-user">
-                    <img src="http://p1.music.126.net/QWMV-Ru_6149AKe0mCBXKg==/1420569024374784.jpg?param=50y50" alt=""/>
+                    <img src="http://p1.music.126.net/QWMV-Ru_6149AKe0mCBXKg==/1420569024374784.jpg?param=50y50" alt="" />
                     <span>网易云音乐</span>
                   </div>
                 </div>
