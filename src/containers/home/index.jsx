@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./index.less";
 import BScroll from "better-scroll";
+import LazyLoad from 'react-lazyload';
 import { Link, route } from "react-router-dom";
 import { getBanner, getPersonalized,getPlaylistDetail} from "../../api";
 import { HTTP_OK } from "../../config";
@@ -129,7 +130,8 @@ class Home extends Component {
                 {personalized.length > 0 &&
                   personalized.map((item,index) => {
                     return (
-                      <li className="song-list-item" key={index} onClick={() => {
+                     <LazyLoad true>
+                        <li className="song-list-item" key={index} onClick={() => {
                         this.props.history.push({
                           pathname:`/playlist/${item.id}`
                         })
@@ -148,6 +150,7 @@ class Home extends Component {
                           <span>{item.name}</span>
                         </div>
                       </li>
+                     </LazyLoad>
                     );
                   })}
               </ul>
