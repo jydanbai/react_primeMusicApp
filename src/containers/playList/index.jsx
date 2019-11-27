@@ -17,7 +17,6 @@ import './index.less'
     await getPlaylistDetail(this.props.match.params.id).then(res => {
       if (res.data.code === HTTP_OK) {
         let data = res.data.playlist
-        // console.log(data)
         this.setState({
           data
         }) 
@@ -34,7 +33,6 @@ import './index.less'
         this.setState({
           data: res.data.playlist
         })
-        console.log(res.data.playlist)
       }
     })
   }
@@ -43,7 +41,6 @@ import './index.less'
   render() {
     const {data} = this.state
     const {creator='',tracks=[]} = data
-    console.log(tracks)
     return (
       <div>
         <header className="rankDetail-header">

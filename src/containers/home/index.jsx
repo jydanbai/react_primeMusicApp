@@ -26,7 +26,6 @@ class Home extends Component {
       }
     });
     if(this.state.banners){
-      console.log(this.state.banners);
       new Swiper(".carouselWrap", {
         loop: true, // 循环模式选项
   
@@ -56,7 +55,6 @@ class Home extends Component {
       }
     });
 
-    console.log('-------');
     new BScroll(".scroll-wrap", {
       scrollY: true,
       click: true,
@@ -69,7 +67,6 @@ class Home extends Component {
   }
   render() {
     const { banners, personalized } = this.state;
-    console.log(this)
     return (
       <div>
         <div className="headerWrap">

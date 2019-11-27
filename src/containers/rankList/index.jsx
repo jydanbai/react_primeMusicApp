@@ -61,7 +61,6 @@ class RankList extends Component {
 
   render() {
     const {officalList, globalList, artistToplist} = this.state
-    console.log(this)
     return (
       <div>
         <header className="rank-header">
