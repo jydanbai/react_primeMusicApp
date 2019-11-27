@@ -40,20 +40,23 @@
   .rankDetail-content {
     .playList-header{
       width: 100%;
-      height: 135.41px;
+      height: 104.156px;
       padding: 15.625px; 
       position: relative;
       // background-color: pink;
       .beijingtu {
+        width: 100%;
+        height: 100%;
         position: absolute;
-        top: 0;
+        top: 45px;
         left: 0;
-        filter: blur(2px);
+        filter: blur(9px);
         transform: scale(1.5);
         background-position: 50%;
         background-size: cover;
         background-repeat: no-repeat;
-        &:before {
+        z-index: -1;
+        &:after {
           content: '';
           position: absolute;
           left: 0;
@@ -129,6 +132,8 @@
       }
     }
     .song-wrapper {
+      background-color: white;
+      
       .song-item {
         width: 375px;
         height: 60px;
