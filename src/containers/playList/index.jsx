@@ -14,7 +14,9 @@ class PlayList extends Component {
       id:0 ,//请求回来的歌单数据
       picUrl:'',
       tracks:[],
-      creator:{}
+      creator:{},
+      ar: '',  //歌手
+      an: ''  //专辑名
     };
   }
 
@@ -38,6 +40,7 @@ class PlayList extends Component {
       click: true
     });
   }
+
   componentDidMount(){
   }
   render() {
@@ -84,7 +87,9 @@ class PlayList extends Component {
                     <li key={item.id} className="song-item" onClick={async()=>{
                       await this.setState({
                         id:item.id,
-                        picUrl:item.al.picUrl
+                        picUrl:item.al.picUrl,
+                        ar: item.ar[0].name,
+                        an: item.al.name,
                       })
                     }}>
                       <div className="song-num">{index + 1}</div>
@@ -101,8 +106,7 @@ class PlayList extends Component {
                 })}
             </ul>
           </div>
-
-          <Player id={this.state.id} picUrl={picUrl}/>
+          <Player id={this.state.id} picUrl={picUrl} ar={ar} an={an}/>
         </div>
       </div>
     );
