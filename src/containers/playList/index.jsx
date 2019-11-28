@@ -44,7 +44,7 @@ class PlayList extends Component {
   componentDidMount(){
   }
   render() {
-    const { data,id,picUrl,tracks,creator} = this.state;
+    const { data,id,picUrl,tracks,creator,ar,an} = this.state;
     return (
       <div>
         <header className="rankDetail-header">
@@ -106,7 +106,7 @@ class PlayList extends Component {
                 })}
             </ul>
           </div>
-          <Player id={this.state.id} picUrl={picUrl} ar={ar} an={an}/>
+          <Player id={id} picUrl={picUrl} ar={ar} an={an}/>
         </div>
       </div>
     );

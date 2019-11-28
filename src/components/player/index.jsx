@@ -72,12 +72,16 @@ class Player extends Component {
         {
           name: "光るなら",
           artist: "Goose house",
-          url: songs.url,
-          cover: picUrl,
+          url: "http://m8.music.126.net/20191128203855/308978b00cdd0b84947c625444c76fd1/ymusic/0259/035b/545f/530ae60b9041df525b98c52ba196512e.mp3",
+          cover: 'https://p2.music.126.net/6A_QXhLcshjeQwet-NheAQ==/109951164500651279.jpg',
           theme: "#ebd0c2"
         }
       ]
     };
+    console.log(songs.url);
+    // songDetail.audio[0].url=songs.url
+    // songDetail.audio[0].cover=songs.picUrl
+    console.log('songDetail',songDetail);
     return (
       <div className="playerWrap" style={{ display: id ? isShow : !isShow }}>
         <ReactAplayer
@@ -90,6 +94,7 @@ class Player extends Component {
           x
         </div>
       </div>
+      
     );
   }
 }
