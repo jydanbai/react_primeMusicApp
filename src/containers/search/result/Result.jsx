@@ -58,15 +58,12 @@ render(){
     <div className="wrapperScroll">
       <div style={{  backgroundColor: '#fff' }} >
         {this.props.songs.length>0&&this.props.songs.map((item,index)=>(
-           <Link key={index} to={{
-             pathname:`/playlist/${item.id}`,
-             
-             }}>
+           
            <div className='left-list' key={index}>
             <h2>{item.name}</h2>
             <p>{item.artists[0].name}</p>
           </div>
-          </Link>
+          
         )
        
         )}

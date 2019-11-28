@@ -84,7 +84,7 @@ class Search extends Component {
                   this.setState({query:item.first,value:item.first})
                   await search(item.first).then(res=>{
                     if(res.data.code === HTTP_OK){
-                      console.log(res.data)
+                      
                        this.setState({
                          song:res.data.result.songs
                        })

@@ -6,6 +6,7 @@ import Loading from './components/loading'
 
 import History from './history';
 import Header from './components/header';
+import Login from './containers/login'
 import Home from 'lazy!./containers/home';
 import RankList from 'lazy!./containers/rankList';
 import Search from 'lazy!./containers/search';
@@ -22,6 +23,7 @@ export default class App extends Component {
         <Header/>
         <Suspense fallback={<Loading/>}>
         <Switch>
+          <Route path='/login' component={Login}></Route>
           <Route path='/home' component={Home}></Route>
           <Route path='/playList/:id' component={PlayList}></Route>
           <Route path='/ranklist' component={RankList}></Route>
