@@ -3,6 +3,31 @@ import ReactAplayer from 'react-aplayer';
 import  './index.less';
 
 class Player extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id:0,//请求回来的歌单数据
+      picUrl:'',
+      isShow:'none'
+    };
+  }
+  componentWillReceiveProps(nextProps){
+    const {id, picUrl} = nextProps
+    this.setState({
+      id,
+      picUrl
+    });
+    console.log(id,picUrl);
+  }
+  
+  isShow() {
+    if(id){
+      this.setState({
+        isShow: 'block',
+      })
+    }
+    return isShow
+  }
   onPlay = () => {
     console.log('on play');
   };
@@ -16,6 +41,7 @@ class Player extends Component {
     this.ap = ap;
   };
   render() {
+    const {id} =this.state
     const props = {
       autoplay:true,
       volume:0.7,
@@ -33,15 +59,15 @@ class Player extends Component {
       ]
     };
     return (
-      <div>
+      
+      <div className="playerWrap" style={{display:this.isShow}}>
         <ReactAplayer
           {...props}
           onInit={this.onInit}
           onPlay={this.onPlay}
           onPause={this.onPause}
         />
-        {/* example of access aplayer instance API */}
-        <button onClick={() => this.ap.toggle()}>toggle</button>
+        <div className="close" style={{display:this.isShow}}>x</div>
       </div>
     );
   }

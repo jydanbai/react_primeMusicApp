@@ -10,7 +10,9 @@ class PlayList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {} //请求回来的歌单数据
+      data: {},
+      id:0 ,//请求回来的歌单数据
+      picUrl:''
     };
   }
 
@@ -28,18 +30,10 @@ class PlayList extends Component {
       scrollY: true,
       click: true
     });
-
-    getPlaylistDetail(this.props.match.params.id).then(res => {
-      if (res.data.code === HTTP_OK) {
-        this.setState({
-          data: res.data.playlist
-        });
-      }
-    });
   }
 
   render() {
-    const { data } = this.state;
+    const { data,id,picUrl} = this.state;
     const { creator = "", tracks = [] } = data;
     return (
       <div>
@@ -80,7 +74,12 @@ class PlayList extends Component {
               {tracks.length > 0 &&
                 tracks.map((item, index) => {
                   return (
-                    <li key={item.id} className="song-item">
+                    <li key={item.id} className="song-item" onClick={()=>{
+                      this.setState({
+                        id:item.id,
+                        picUrl:item.al.picUrl
+                      })
+                    }}>
                       <div className="song-num">{index + 1}</div>
                       <div className="song-info">
                         <h2>{item.name}</h2>
@@ -95,7 +94,7 @@ class PlayList extends Component {
                 })}
             </ul>
           </div>
-          <Player/>
+          <Player id={id} picUrl={picUrl}/>
         </div>
       </div>
     );
