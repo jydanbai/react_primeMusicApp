@@ -101,7 +101,7 @@ class PlayList extends Component {
                 })}
             </ul>
           </div>
-          
+
           <Player id={this.state.id} picUrl={picUrl}/>
         </div>
       </div>

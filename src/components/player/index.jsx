@@ -59,11 +59,12 @@ class Player extends Component {
     this.setState({
       isShow: "none"
     });
+    this.ap.pause()
   }
   render() {
-    const { id, isShow, songs } = this.state;
+    const { id, isShow, songs,picUrl } = this.state;
     console.log(songs);
-    const props = {
+    const songDetail = {
       volume: 0.7,
       theme: "#E5473C",
       lrcType: 3,
@@ -71,9 +72,8 @@ class Player extends Component {
         {
           name: "光るなら",
           artist: "Goose house",
-          url: this.state.songs,
-          cover: "https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.jpg",
-          lrc: "https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.lrc",
+          url: songs.url,
+          cover: picUrl,
           theme: "#ebd0c2"
         }
       ]
@@ -81,7 +81,7 @@ class Player extends Component {
     return (
       <div className="playerWrap" style={{ display: id ? isShow : !isShow }}>
         <ReactAplayer
-          {...props}
+          {...songDetail}
           onInit={this.onInit}
           onPlay={this.onPlay}
           onPause={this.onPause}
