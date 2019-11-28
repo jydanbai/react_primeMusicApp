@@ -14,7 +14,6 @@ export default function user(state=initUser,action){
     switch(action.type){
      case SAVE_USER_TOKEN:
          const {id,userName,code}=action.data
-         console.log(action)
          return {
              user:id,
              userName:userName,

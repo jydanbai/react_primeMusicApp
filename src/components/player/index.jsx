@@ -17,7 +17,6 @@ class Player extends Component {
   }
   async componentWillReceiveProps(nextProps) {
     const { id, picUrl } = nextProps;
-    console.log(id);
     this.setState({
       id,
       picUrl,
@@ -28,27 +27,14 @@ class Player extends Component {
         this.setState({
           songs: res.data.data[0]
         });
-        console.log(this.state.songs);
       }
     });
   }
-  // async componentDidMount() {
-  //   const { id, picUrl } = this.props;
-  //   console.log(id);
-  //   this.setState({
-  //     id,
-  //     picUrl,
-  //     isShow: "block"
-  //   });
-    
-  // }
 
   onPlay = () => {
-    console.log("on play");
   };
 
   onPause = () => {
-    console.log("on pause");
   };
 
   // example of access aplayer instance
@@ -63,7 +49,6 @@ class Player extends Component {
   }
   render() {
     const { id, isShow, songs,picUrl } = this.state;
-    console.log(songs);
     const songDetail = {
       volume: 0.7,
       theme: "#E5473C",
@@ -78,10 +63,8 @@ class Player extends Component {
         }
       ]
     };
-    console.log(songs.url);
     // songDetail.audio[0].url=songs.url
     // songDetail.audio[0].cover=songs.picUrl
-    console.log('songDetail',songDetail);
     return (
       <div className="playerWrap" style={{ display: id ? isShow : !isShow }}>
         <ReactAplayer

@@ -17,11 +17,9 @@ import 'antd-mobile/dist/antd-mobile.css';
 
 export default class App extends Component {
   onPlay = () => {
-    console.log('on play');
   };
 
   onPause = () => {
-    console.log('on pause');
   };
 
   // example of access aplayer instance
