@@ -68,7 +68,10 @@ class Home extends Component {
       <div>
         <div className="headerWrap">
           <div className="headerIcon">
-            <i className="iconfont iconziyuan"></i>
+            <Link to='/login'>
+            <i className="iconfont iconyonghu"></i>
+            </Link>
+            
           </div>
           <div className="headerIcon">
             <i className="iconfont iconyinfu"></i>
