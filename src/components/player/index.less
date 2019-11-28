@@ -1,55 +1,73 @@
-.aplayer{
+.playerWrap {
+  display: none;
   position: absolute;
   bottom: 0;
   width: 100%;
-  margin: 0 !important;
-  .aplayer-body{
-    height: 52px;
-    margin-bottom: 8px;
-    .aplayer-pic{
+
+  .close {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .aplayer {
+    margin: 0 !important;
+    .aplayer-body {
       height: 52px;
-      width: 52px;
-      .aplayer-button{
-        width: 26px;
-        height: 26px;
-        bottom: 50%;
-        right: 50%;
-        margin: 0 -13px -13px 0;
-        svg{
-          width: 20px;
-          height: 20px;
-          top: 3px;
-          left: 4px;
-        }
-      }
-    }
-    .aplayer-info{
-      width: calc(100% - 52px);
-      .aplayer-music{
-        span{
-          font-size: 14px;
-        }
-      }
-      .aplayer-lrc{
-        p{
-          font-size: 12px;
-        }
-      }
-      .aplayer-controller{
-        .aplayer-bar-wrap{
-          .aplayer-bar{
-            height: 2px;
-            width: 100%;
-            margin-top: 5px;
+
+      .aplayer-pic {
+        height: 52px;
+        width: 52px;
+
+        .aplayer-button {
+          width: 26px;
+          height: 26px;
+          bottom: 50%;
+          right: 50%;
+          margin: 0 -13px -13px 0;
+
+          svg {
+            width: 20px;
+            height: 20px;
+            top: 3px;
+            left: 4px;
           }
         }
-        .aplayer-time{
-          height: 17px;
-          font-size: 14px;
-          line-height: 17px;
-          padding-left: 7px;
+      }
+
+      .aplayer-info {
+        width: calc(100% - 52px);
+
+        .aplayer-music {
+          span {
+            font-size: 14px;
+          }
+        }
+
+        .aplayer-lrc {
+          p {
+            font-size: 12px;
+          }
+        }
+
+        .aplayer-controller {
+          .aplayer-bar-wrap {
+            .aplayer-bar {
+              height: 2px;
+              width: 100%;
+            }
+          }
+
+          .aplayer-time {
+            height: 17px;
+            font-size: 11px;
+            padding-left: 7px;
+          }
         }
       }
     }
   }
+
 }

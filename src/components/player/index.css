@@ -1,47 +1,54 @@
-.aplayer {
+.playerWrap {
+  display: none;
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+.playerWrap .close {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.playerWrap .aplayer {
   margin: 0 !important;
 }
-.aplayer .aplayer-body {
+.playerWrap .aplayer .aplayer-body {
   height: 52px;
-  margin-bottom: 8px;
 }
-.aplayer .aplayer-body .aplayer-pic {
+.playerWrap .aplayer .aplayer-body .aplayer-pic {
   height: 52px;
   width: 52px;
 }
-.aplayer .aplayer-body .aplayer-pic .aplayer-button {
+.playerWrap .aplayer .aplayer-body .aplayer-pic .aplayer-button {
   width: 26px;
   height: 26px;
   bottom: 50%;
   right: 50%;
   margin: 0 -13px -13px 0;
 }
-.aplayer .aplayer-body .aplayer-pic .aplayer-button svg {
+.playerWrap .aplayer .aplayer-body .aplayer-pic .aplayer-button svg {
   width: 20px;
   height: 20px;
   top: 3px;
   left: 4px;
 }
-.aplayer .aplayer-body .aplayer-info {
+.playerWrap .aplayer .aplayer-body .aplayer-info {
   width: calc(100% - 52px);
 }
-.aplayer .aplayer-body .aplayer-info .aplayer-music span {
+.playerWrap .aplayer .aplayer-body .aplayer-info .aplayer-music span {
   font-size: 14px;
 }
-.aplayer .aplayer-body .aplayer-info .aplayer-lrc p {
+.playerWrap .aplayer .aplayer-body .aplayer-info .aplayer-lrc p {
   font-size: 12px;
 }
-.aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
+.playerWrap .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
   height: 2px;
   width: 100%;
-  margin-top: 5px;
 }
-.aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time {
+.playerWrap .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time {
   height: 17px;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 11px;
   padding-left: 7px;
 }
