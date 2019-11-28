@@ -1,88 +1,94 @@
-import React, { Component } from 'react';
-import ReactAplayer from 'react-aplayer';
-import  './index.less';
+import React, { Component } from "react";
+import ReactAplayer from "react-aplayer";
+import "./index.less";
 
-import { getMusicDetail } from '../../api'
-import {HTTP_OK } from '../../config'
+import { getMusicDetail } from "../../api";
+import { HTTP_OK } from "../../config";
 
 class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id:0,//请求回来的歌单数据
-      picUrl:'',
-      isShow:'none',
-      songs:[]
+      id: 0, //请求回来的歌单数据
+      picUrl: "",
+      isShow: "none",
+      songs: {}
     };
   }
-  componentWillReceiveProps(nextProps){
-    const {id, picUrl} = nextProps
+  async componentWillReceiveProps(nextProps) {
+    const { id, picUrl } = nextProps;
+    console.log(id);
     this.setState({
       id,
       picUrl,
-      isShow:'block',
-     
+      isShow: "block"
     });
-     getMusicDetail(id).then(res=>{
-      if(res.data.code === HTTP_OK){
-        console.log(id)
+    await getMusicDetail(id).then(res => {
+      if (res.data.code === HTTP_OK) {
         this.setState({
-          songs:res.data.data
-        })
-        // console.log(this.state.songs[0].url)
-        
+          songs: res.data.data[0]
+        });
+        console.log(this.state.songs);
       }
-    })
+    });
   }
-  
-  
+  // async componentDidMount() {
+  //   const { id, picUrl } = this.props;
+  //   console.log(id);
+  //   this.setState({
+  //     id,
+  //     picUrl,
+  //     isShow: "block"
+  //   });
+    
+  // }
+
   onPlay = () => {
-    console.log('on play');
+    console.log("on play");
   };
 
   onPause = () => {
-    console.log('on pause');
+    console.log("on pause");
   };
 
   // example of access aplayer instance
   onInit = ap => {
     this.ap = ap;
   };
-  close(){
+  close() {
     this.setState({
-      isShow:'none'
-    })
+      isShow: "none"
+    });
   }
   render() {
-    const {id,isShow,songs} =this.state
-    // const url=songs[0].url
+    const { id, isShow, songs } = this.state;
+    console.log(songs);
     const props = {
-      autoplay:true,
-      volume:0.7,
-      theme: '#E5473C',
+      volume: 0.7,
+      theme: "#E5473C",
       lrcType: 3,
       audio: [
         {
-          name: '光るなら',
-          artist: 'Goose house',
-          url: 'https://music.163.com/song/media/outer/url?id=66476.mp3',
-          cover: 'https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.jpg',
-          lrc: 'https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.lrc',
-          theme: '#ebd0c2'
+          name: "光るなら",
+          artist: "Goose house",
+          url: this.state.songs,
+          cover: "https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.jpg",
+          lrc: "https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.lrc",
+          theme: "#ebd0c2"
         }
       ]
     };
     return (
-      
-      <div className="playerWrap" style={{display:id?isShow:!isShow}}>
+      <div className="playerWrap" style={{ display: id ? isShow : !isShow }}>
         <ReactAplayer
           {...props}
           onInit={this.onInit}
           onPlay={this.onPlay}
           onPause={this.onPause}
-          
         />
-        <div className="close" onClick={()=>this.close()}>x</div>
+        <div className="close" onClick={() => this.close()}>
+          x
+        </div>
       </div>
     );
   }

@@ -12,20 +12,25 @@ class PlayList extends Component {
     this.state = {
       data: {},
       id:0 ,//请求回来的歌单数据
-      picUrl:''
+      picUrl:'',
+      tracks:[],
+      creator:{}
     };
   }
 
-  async componentDidMount() {
+  async componentWillMount() {
     await getPlaylistDetail(this.props.match.params.id).then(res => {
       if (res.data.code === HTTP_OK) {
+        let tracks = res.data.playlist.tracks;
         let data = res.data.playlist;
+        let creator = res.data.playlist.creator;
         this.setState({
-          data
+          tracks,
+          data,
+          creator
         });
       }
     });
-
     
     new BScroll(".rankDetail-wrapper", {
       scrollX: false,
@@ -33,10 +38,10 @@ class PlayList extends Component {
       click: true
     });
   }
-
+  componentDidMount(){
+  }
   render() {
-    const { data,id,picUrl} = this.state;
-    const { creator = "", tracks = [] } = data;
+    const { data,id,picUrl,tracks,creator} = this.state;
     return (
       <div>
         <header className="rankDetail-header">
@@ -76,8 +81,8 @@ class PlayList extends Component {
               {tracks.length > 0 &&
                 tracks.map((item, index) => {
                   return (
-                    <li key={item.id} className="song-item" onClick={()=>{
-                      this.setState({
+                    <li key={item.id} className="song-item" onClick={async()=>{
+                      await this.setState({
                         id:item.id,
                         picUrl:item.al.picUrl
                       })
@@ -96,7 +101,8 @@ class PlayList extends Component {
                 })}
             </ul>
           </div>
-          <Player id={id} picUrl={picUrl}/>
+          
+          <Player id={this.state.id} picUrl={picUrl}/>
         </div>
       </div>
     );
