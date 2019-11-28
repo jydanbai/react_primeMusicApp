@@ -25,7 +25,7 @@ class Player extends Component {
         {
           name: '光るなら',
           artist: 'Goose house',
-          url: 'https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.mp3',
+          url: 'https://music.163.com/song/media/outer/url?id=571545135.mp3',
           cover: 'https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.jpg',
           lrc: 'https://moeplayer.b0.upaiyun.com/aplayer/hikarunara.lrc',
           theme: '#ebd0c2'

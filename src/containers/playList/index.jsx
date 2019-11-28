@@ -10,7 +10,8 @@ class PlayList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {} //请求回来的歌单数据
+      data: {} ,//请求回来的歌单数据
+      songs:[]
     };
   }
 
@@ -23,18 +24,12 @@ class PlayList extends Component {
         });
       }
     });
+
+    
     new BScroll(".rankDetail-wrapper", {
       scrollX: false,
       scrollY: true,
       click: true
-    });
-
-    getPlaylistDetail(this.props.match.params.id).then(res => {
-      if (res.data.code === HTTP_OK) {
-        this.setState({
-          data: res.data.playlist
-        });
-      }
     });
   }
 
@@ -80,7 +75,7 @@ class PlayList extends Component {
               {tracks.length > 0 &&
                 tracks.map((item, index) => {
                   return (
-                    <li key={item.id} className="song-item">
+                    <li key={item.id} className="song-item" >
                       <div className="song-num">{index + 1}</div>
                       <div className="song-info">
                         <h2>{item.name}</h2>

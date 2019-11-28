@@ -20,9 +20,12 @@
   font-size: 14px;
   line-height: 41px;
   color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .rankDetail-header .header-title {
-  width: 257px;
+  width: 266px;
   height: 41px;
   font-size: 14px;
   line-height: 41px;
@@ -35,6 +38,7 @@
 .rankDetail-wrapper {
   height: calc(100vh - 56px);
   overflow: hidden;
+  position: relative;
 }
 .rankDetail-wrapper .rankDetail-content .playList-header {
   width: 100%;
