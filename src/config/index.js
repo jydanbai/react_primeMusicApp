@@ -9,3 +9,6 @@ export const defaultLimit = 20
 
 // 请求成功状态码
 export const HTTP_OK = 200
+
+// 当前是否是开发环境
+export const IS_DEV = process.env.NODE_ENV==='development'

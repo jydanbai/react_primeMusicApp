@@ -2,6 +2,7 @@ import axios from 'axios'
 
 import { URL, defaultLimit } from '../config'
 
+
 //获取轮播
 export function getBanner() {
   const url = `${URL}/banner`
@@ -51,6 +52,17 @@ export function search(keywords,type=1){
      
    }
  })
+}
+//验证邮箱密码是否正确‘
+export function reqLogin(email,password){
+  const url=`${URL}/login`
+  
+  return axios.get(url,{
+    params:{
+      email,
+      password
+    }
+  })
 }
 
 //获取歌曲详情
