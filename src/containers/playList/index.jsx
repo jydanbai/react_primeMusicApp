@@ -25,6 +25,8 @@ class PlayList extends Component {
         });
       }
     });
+
+    
     new BScroll(".rankDetail-wrapper", {
       scrollX: false,
       scrollY: true,

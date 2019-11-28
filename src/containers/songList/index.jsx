@@ -15,27 +15,20 @@ class SongList extends Component {
    
     }
   }
-  componentWillUpdate() {
-
-  }
 
   async componentDidMount() {
   
-    new BScroll('.column-content-wrapper', {
-      scrollY: true,
-      click: true,
-      scrollX: false,
-    })
-    //组件更新后，如果实例化了better-scroll并且需要刷新就调用refresh()函数
-    // if (new BScroll) {
-    //   new BScrollrefresh()
-    // }
     await getPersonalized().then(res => {
       if (res.data.code === HTTP_OK) {
         this.setState({
           personalized: res.data.result
         })
       }
+    })
+    new BScroll('.column-content-wrapper', {
+      scrollY: true,
+      click: true,
+      scrollX: false,
     })
   }
   

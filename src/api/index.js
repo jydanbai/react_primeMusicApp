@@ -53,3 +53,12 @@ export function search(keywords,type=1){
  })
 }
 
+//获取歌曲详情
+export function getMusicDetail(id){
+  const url = `${URL}/song/url`
+  return axios.get(url,{
+    params:{
+      id
+    }
+  })
+}
