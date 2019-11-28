@@ -8,26 +8,19 @@ class Player extends Component {
     this.state = {
       id:0,//请求回来的歌单数据
       picUrl:'',
-      isShow:'none'
+      isShow: false
     };
   }
   componentWillReceiveProps(nextProps){
     const {id, picUrl} = nextProps
     this.setState({
       id,
-      picUrl
+      picUrl,
+      isShow: !!id
     });
     console.log(id,picUrl);
   }
   
-  isShow() {
-    if(id){
-      this.setState({
-        isShow: 'block',
-      })
-    }
-    return isShow
-  }
   onPlay = () => {
     console.log('on play');
   };
@@ -41,7 +34,8 @@ class Player extends Component {
     this.ap = ap;
   };
   render() {
-    const {id} =this.state
+    console.log(this.state)
+    const {isShow} =this.state
     const props = {
       autoplay:true,
       volume:0.7,
@@ -60,14 +54,18 @@ class Player extends Component {
     };
     return (
       
-      <div className="playerWrap" style={{display:this.isShow}}>
+      <div className="playerWrap" style={{display: isShow? 'block' : 'none'}}>
         <ReactAplayer
           {...props}
           onInit={this.onInit}
           onPlay={this.onPlay}
           onPause={this.onPause}
         />
-        <div className="close" style={{display:this.isShow}}>x</div>
+        <div className="close" onClick={() => {
+          this.setState({
+            isShow: !this.state.isShow
+          })
+        }}>x</div>
       </div>
     );
   }
